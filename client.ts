@@ -7,6 +7,7 @@ export class Client {
     this.server.get({
       name: 2000,
       age: "Luis Fernando",
+      gender: "",
     });
   }
 }

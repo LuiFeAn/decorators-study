@@ -17,6 +17,27 @@ class PseudoClassValidator {
 
 const pseudoClassValidatorErrors = new PseudoClassValidator();
 
+function IsNotEmpty() {
+  return function (target: Object, propretyKey: string) {
+    let value: string;
+    const getter = function () {
+      return value;
+    };
+    const setter = function (val: string) {
+      if (!val) {
+        pseudoClassValidatorErrors.add({
+          error: "Campo obrigatório",
+          field: propretyKey,
+        });
+      }
+    };
+    Object.defineProperty(target, propretyKey, {
+      get: getter,
+      set: setter,
+    });
+  };
+}
+
 function IsString() {
   return function (target: Object, propretyKey: string) {
     let value: string;
@@ -59,4 +80,4 @@ function IsNumber() {
   };
 }
 
-export { IsString, IsNumber, pseudoClassValidatorErrors };
+export { IsString, IsNumber, pseudoClassValidatorErrors, IsNotEmpty };
