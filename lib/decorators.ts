@@ -1,6 +1,6 @@
-import { PseudoClassValidator } from "./pseudo-class-validator";
+import { PseudoClassValidatorErrors } from "./pseudo-class-validator";
 
-export const pseudoClassValidatorErrors = new PseudoClassValidator();
+export const pseudoClassValidatorErrors = new PseudoClassValidatorErrors();
 
 function IsNotEmpty() {
   return function (target: Object, propretyKey: string) {

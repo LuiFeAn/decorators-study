@@ -1,12 +1,12 @@
-interface IPseudoClassValidatorOptions {
+interface IPseudoClassValidatorErrorOptions {
   error: string;
   field: string;
 }
 
-export class PseudoClassValidator {
-  private errors: IPseudoClassValidatorOptions[] = [];
+export class PseudoClassValidatorErrors {
+  private errors: IPseudoClassValidatorErrorOptions[] = [];
 
-  add(error: IPseudoClassValidatorOptions) {
+  add(error: IPseudoClassValidatorErrorOptions) {
     this.errors.push(error);
   }
 
