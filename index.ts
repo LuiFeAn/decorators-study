@@ -1,6 +1,6 @@
 import { Client } from "./client";
 import { Server } from "./server";
-import { pseudoClassValidatorErrors } from "./pseudo-class-validator";
+import { pseudoClassValidatorErrors } from "./lib/decorators";
 
 const api = new Server();
 

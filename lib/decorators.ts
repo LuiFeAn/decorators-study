@@ -1,21 +1,6 @@
-interface IPseudoClassValidatorOptions {
-  error: string;
-  field: string;
-}
+import { PseudoClassValidator } from "./pseudo-class-validator";
 
-class PseudoClassValidator {
-  private errors: IPseudoClassValidatorOptions[] = [];
-
-  add(error: IPseudoClassValidatorOptions) {
-    this.errors.push(error);
-  }
-
-  get errors_() {
-    return this.errors;
-  }
-}
-
-const pseudoClassValidatorErrors = new PseudoClassValidator();
+export const pseudoClassValidatorErrors = new PseudoClassValidator();
 
 function IsNotEmpty() {
   return function (target: Object, propretyKey: string) {
@@ -80,4 +65,4 @@ function IsNumber() {
   };
 }
 
-export { IsString, IsNumber, pseudoClassValidatorErrors, IsNotEmpty };
+export { IsNotEmpty, IsNumber, IsString };

@@ -1,4 +1,4 @@
-import { IsString, IsNumber, IsNotEmpty } from "./pseudo-class-validator";
+import { IsNotEmpty, IsNumber, IsString } from "./lib/decorators";
 
 class ObtainUserDto {
   @IsString()
