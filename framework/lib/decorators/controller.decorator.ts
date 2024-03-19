@@ -1,6 +1,10 @@
-import { controllerContainer } from "./controller-container";
+import { controllerContainer } from "../containers/controller.container";
+
 export interface CommonRequests {
-  get(): void;
+  get(slug?: string): any;
+  post(): any;
+  delete(slug?: string): any;
+  patch(slug?: string): any;
 }
 
 export type ControllerInstaceOfType = new () => CommonRequests;

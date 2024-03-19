@@ -1,4 +1,4 @@
-import { CommonRequests } from "./decorators";
+import { CommonRequests } from "../decorators/controller.decorator";
 
 export class ControllerContainer {
   private controllers: Map<string, CommonRequests> = new Map();
@@ -21,4 +21,5 @@ export class ControllerContainer {
   }
 }
 
+//singleton
 export const controllerContainer = new ControllerContainer();
