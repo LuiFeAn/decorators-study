@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "fast:run":"npx ts-node framework/index.ts"
+  },
   "dependencies": {
     "@types/express": "^4.17.21",
     "express": "^4.18.3"
