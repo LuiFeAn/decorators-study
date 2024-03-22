@@ -7,13 +7,8 @@ export class ControllerContainer {
     this.controllers.set(path, controller);
   }
 
-  get all() {
-    const instances = Array.from(this.controllers.values());
-    const paths = Array.from(this.controllers.keys());
-    return {
-      paths,
-      instances,
-    };
+  iterate(cb: (value: CommonRequests, key: string) => void) {
+    return this.controllers.forEach(cb);
   }
 
   one(path: string) {

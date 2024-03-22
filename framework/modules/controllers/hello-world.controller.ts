@@ -1,13 +1,9 @@
 import { IsController } from "../../lib/decorators/controller.decorator";
-import { CommonRequests } from "../../lib/decorators/controller.decorator";
 
 @IsController("/")
-class HellWorldController implements CommonRequests {
+class HellWorldController {
   get() {
-    return {
-      name: "Luis Fernando",
-      age: 23,
-    };
+    return "Hello Words";
   }
   delete(): any {}
   patch(): any {}
