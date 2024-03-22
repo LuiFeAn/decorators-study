@@ -1,6 +1,7 @@
 import { CommonRequests } from "../decorators/controller.decorator";
+import { AbstractContainer } from "./abstract.container";
 
-export class ControllerContainer {
+export class ControllerContainer implements AbstractContainer {
   private controllers: Map<string, CommonRequests> = new Map();
 
   push(path: string, controller: CommonRequests) {
