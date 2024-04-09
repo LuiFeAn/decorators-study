@@ -1,5 +1,5 @@
 import { Fast } from "./lib/fast";
-import "./modules/controllers/hello-world.controller";
+import "./infra/controllers/hello-world.controller";
 
 function start() {
   const PORT_ = 3002;

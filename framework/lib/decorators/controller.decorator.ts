@@ -7,7 +7,7 @@ export interface CommonRequests {
   patch(slug?: string): any;
 }
 
-export type ControllerInstaceOfType = new () => CommonRequests;
+export type ControllerInstaceOfType = new (...args: any[]) => CommonRequests;
 
 function IsController<T extends ControllerInstaceOfType>(path: string) {
   return function (target: T) {
