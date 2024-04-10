@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "fast:run": "npx ts-node-dev framework/index.ts"
+    "fastjs": "npx ts-node-dev example/app.core.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",
