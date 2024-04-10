@@ -37,8 +37,8 @@ export class Fast {
       const methods = [get, patch, post];
       methods.forEach((method) => {
         const name = method.name as RequestMethodsTypes;
-        this.engine[name](path, (req, res) => {
-          const cb_ = method();
+        this.engine[name](path, async (req, res) => {
+          const cb_ = await method();
           if (cb_) {
             res.json(cb_);
           }

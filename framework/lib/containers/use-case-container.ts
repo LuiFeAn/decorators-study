@@ -1,19 +1,27 @@
 import { CommonRequests } from "../decorators/controller.decorator";
 import { AbstractContainer } from "./abstract.container";
 
-interface UseCaseConstructor<T> {
-  execute: Promise<T> | undefined;
+interface UseCaseConstructor {
+  execute(...args: any[]): Promise<any> | undefined;
 }
 
-export type UseCaseType<T> = UseCaseConstructor<T>;
+export type UseCaseType = UseCaseConstructor;
 
-export type UseCaseTypeConstructor<T> = new () => UseCaseConstructor<T>;
+export type UseCaseTypeConstructor = new () => UseCaseConstructor;
 
-export class UseCaseContainer<T> {
-  private services: Map<string, UseCaseType<T>> = new Map();
+export class UseCaseContainer {
+  private services: Map<string, UseCaseType> = new Map();
 
-  push(path: string, useCase: UseCaseType<T>) {
-    this.services.set(path, useCase);
+  push(key: string, useCase: UseCaseType) {
+    this.services.set(key, useCase);
+  }
+
+  all() {
+    return this.services.values();
+  }
+
+  get(key: string) {
+    return this.services.get(key);
   }
 }
 
