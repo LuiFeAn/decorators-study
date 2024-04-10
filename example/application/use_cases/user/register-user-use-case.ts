@@ -1,4 +1,4 @@
-import { IsUseCase } from "../../../lib/decorators/use-case.decorator";
+import { IsUseCase } from "../../../../lib/core/decorators/use-case.decorator";
 import { User } from "../../../domain/entities/user";
 
 interface IRegisterUserInputDto {

@@ -1,5 +1,5 @@
 import { RegisterUserUseCase } from "../../application/use_cases/user/register-user-use-case";
-import { IsController } from "../../lib/decorators/controller.decorator";
+import { IsController } from "../../../lib/core/decorators/controller.decorator";
 @IsController("/")
 class HellWorldController {
   async get() {

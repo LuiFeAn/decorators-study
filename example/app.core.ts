@@ -1,4 +1,4 @@
-import { Fast } from "./lib/fast";
+import { Fast } from "../lib/core/fast";
 import "./application/use_cases/user/register-user-use-case";
 import "./infra/controllers/hello-world.controller";
 
