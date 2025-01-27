@@ -1,13 +1,20 @@
 import { controllerContainer } from "../containers/controller.container";
 
 export interface CommonRequests {
-  get(slug?: string): any;
-  post(): any;
-  delete(slug?: string): any;
-  patch(slug?: string): any;
+  list?(slug?: string): any;
+  detail?(slug?: string): any;
+  create?(): any;
+  delete?(slug?: string): any;
+  partialUpdate?(slug?: string): any;
 }
 
-export type ControllerInstaceOfType = new (...args: any[]) => CommonRequests;
+type RequireAtLeastOneMethod<T,Keys extends keyof T = keyof T> = Keys extends keyof T
+  ? Required<Pick<T, Keys>> & Partial<Omit<T, Keys>>
+  : never;
+
+export type AtLeastOneCommonRequest = RequireAtLeastOneMethod<CommonRequests>;
+
+export type ControllerInstaceOfType = new (...args: any[]) => AtLeastOneCommonRequest;
 
 function IsController<T extends ControllerInstaceOfType>(path: string) {
   return function (target: T) {
