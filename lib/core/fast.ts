@@ -33,16 +33,26 @@ export class Fast {
 
   requestHandler() {
     controllerContainer.iterate((instance, path) => {
-      const { get, post, patch } = instance;
+      const { list: get, create: post, partialUpdate: patch } = instance;
       const methods = [get, patch, post];
       methods.forEach((method) => {
-        const name = method.name as RequestMethodsTypes;
-        this.engine[name](path, async (req, res) => {
-          const cb_ = await method();
-          if (cb_) {
-            res.json(cb_);
-          }
-        });
+        if (method) {
+          const methodLiterals = {
+            list: "get",
+            detail: "get",
+            create: "post",
+            partialUpdate: "patch",
+          };
+          const name =
+            methodLiterals[method?.name as keyof typeof methodLiterals];
+
+          this.engine[name as RequestMethodsTypes](path, async (req, res) => {
+            const cb_ = await method();
+            if (cb_) {
+              res.json(cb_);
+            }
+          });
+        }
       });
     });
   }
