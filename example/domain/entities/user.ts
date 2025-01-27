@@ -4,13 +4,19 @@ export interface IUser {
 }
 
 export class User {
-  constructor(private props: IUser) {}
+  private _username: string;
+  private _age: number;
+
+  constructor({ username, age }: IUser) {
+    this._username = username;
+    this._age = age;
+  }
 
   get username() {
-    return this.props.username;
+    return this._username;
   }
 
   get age() {
-    return this.props.age;
+    return this._age;
   }
 }
